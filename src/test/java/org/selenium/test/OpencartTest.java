@@ -30,6 +30,7 @@ public class OpencartTest {
 		String expectedTitle = "Your Store";
 		
 		Assert.assertEquals(homeTitle, expectedTitle);
+		System.out.println("This line is for test github webhook, automatically trigger when push events happens");
 		
 		driver.quit();
 		
