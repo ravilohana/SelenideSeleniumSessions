@@ -21,19 +21,19 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class GoogleTest {
 	
-	//WebDriver driver =null;
+	WebDriver driver =null;
 	@Parameters("Browser")
 	@Test
 	public void googleSearch(String browserName) {
 		if(browserName.contains("chrome")) {
 			WebDriverManager.chromedriver().setup();
-			open("https://www.google.com");
+			driver = new ChromeDriver();
 		}else if(browserName.contains("Edge")) {
 			WebDriverManager.edgedriver().setup();
-			open("https://www.google.com");
+			driver = new EdgeDriver();
 			
 		}
-		
+		open("https://www.google.com");
 		$(By.name("q")).setValue("Naveen AutomationLabs");
 		$(By.name("btnK")).click();
 		$(By.id("logo")).shouldHave(Condition.appear);
